@@ -1,19 +1,7 @@
-import {createStore, combineReducers} from 'redux';
-import { Dishes } from './dishes';
-import { Comments } from './comments';
-import { Promotions } from './promotions';
-import { Leaders } from './leaders';
+import {createStore} from 'redux';
+import rootReducer from './reducer'
+import {composeWithDevTools}  from "redux-devtools-extension";
 
-export const ConfigureStore = () => {
-    const store = createStore(
-        combineReducers({
-            dishes: Dishes,
-            comments: Comments,
-            promotions: Promotions,
-            leaders: Leaders
-        })
-    );
+const store = createStore(rootReducer , composeWithDevTools());
 
-    return store;
-}
-
+export default store;

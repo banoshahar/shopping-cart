@@ -1,5 +1,5 @@
-export const DISHES =
-    [
+const InitialState = {
+    products: [
         {
             id: 0,
             name: 'Uthappizza',
@@ -39,5 +39,11 @@ export const DISHES =
             price: '2.99',
             featured: false,
             description: 'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms'
-        }
-    ];
+        },
+
+    ],
+    cart: [],
+    currentItem: null,
+};
+
+export default InitialState;
