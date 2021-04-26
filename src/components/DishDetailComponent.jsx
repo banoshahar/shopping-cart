@@ -164,7 +164,8 @@ function RenderComments({ comments }) {
 
 const DishDetailComponent = props => {
   const {dish , comments} = props; 
-  return( 
+  return(
+ 
   <div className="container">
     <div className="row">
       <Breadcrumb>
@@ -183,7 +184,6 @@ const DishDetailComponent = props => {
       <RenderComments comments={comments} />
     </div>
   </div>
-);
   )
 }
   
