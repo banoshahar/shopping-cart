@@ -4,16 +4,24 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
+
+
+const store = ConfigureStore();
 class App extends Component {
 
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Main />
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Main />
+          </div>
+        </Router>
+      </Provider>
+
 
     );
   }
