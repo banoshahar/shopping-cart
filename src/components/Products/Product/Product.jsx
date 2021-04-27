@@ -1,22 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useCartHooks from "../../../redux/Shopping/shopping-actions";
 
+const Product = ({ product }) => {
+  const {addToCart , loadCurrentItem}  = useCartHooks();
 
-// Redux
-import { connect } from "react-redux";
-import {
-  loadCurrentItem,
-  addToCart,
-} from "../../../redux/Shopping/shopping-actions";
-
-const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
-    <div>
+    <div className='container'>
       <img
         src={product.image}
         alt={product.title}
       />
-
       <div>
         <p>{product.title}</p>
         <p>{product.description}</p>
@@ -25,7 +19,10 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
 
       <div>
         <Link to={`/product/${product.id}`}>
-    
+          <button
+            onClick={() => loadCurrentItem(product.id)}>
+            View Item
+          </button>
         </Link>
         <button
           onClick={() => addToCart(product.id)}
@@ -37,11 +34,5 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (id) => dispatch(addToCart(id)),
-    loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
-  };
-};
 
-export default connect(null, mapDispatchToProps)(Product);
+export default Product;

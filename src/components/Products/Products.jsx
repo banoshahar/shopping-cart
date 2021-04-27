@@ -1,14 +1,13 @@
 import React from "react";
-
-
-// Redux
-import { connect } from "react-redux";
-
 import Product from "./Product/Product";
+import {  useSelector } from "react-redux";
 
-const Products = ({ products }) => {
+const Products = () => {
+
+  const products = useSelector(state => state.shop.products);
   return (
-    <div>
+  
+    <div className="col-12 col-md-5 m-1">
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
@@ -16,10 +15,4 @@ const Products = ({ products }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.shop.products,
-  };
-};
-
-export default connect(mapStateToProps)(Products);
+export default Products;

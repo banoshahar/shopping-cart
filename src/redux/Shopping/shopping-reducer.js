@@ -40,9 +40,12 @@ const shopReducer = (state = initialState, action) => {
                 ),
             };
         case actionTypes.LOAD_CURRENT_ITEM:
+            const prod = state.products.find(
+                (product) => product.id === action.payload.id
+            );
             return {
                 ...state,
-                currentItem: action.payload,
+                currentItem: prod,
             };
         default:
             return state;

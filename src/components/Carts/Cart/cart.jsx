@@ -1,20 +1,29 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import useCartHooks from "../../../redux/Shopping/shopping-actions";
 import {
-  adjustItemQty,
-  removeFromCart,
-} from "../../../redux/Shopping/shopping-actions";
+ 
+  Button,
+  
+} from "reactstrap";
 
-const CartItem = ({ item, adjustQty, removeFromCart }) => {
+const CartItem = ({ item }) => {
   const [input, setInput] = useState(item.qty);
+  const {adjustQty , removeFromCart}  = useCartHooks();
+  const state = {
+    isModalOpen: false
+  };
 
   const onChangeHandler = (e) => {
     setInput(e.target.value);
     adjustQty(item.id, e.target.value);
   };
+  
+  const toggleModal= () => {
+    state.isModalOpen= !state.isModalOpen
+  }
 
   return (
-    <div>
+    <div className="col-12 col-md-5 m-1">
       <img
         src={item.image}
         alt={item.title}
@@ -36,19 +45,13 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
             onChange={onChangeHandler}
           />
         </div>
-        <button
-          onClick={() => removeFromCart(item.id)}> Remove
-        </button>
+        <Button outline onClick={() => removeFromCart(item.id)}>
+          <span className="fa minus-circle" /> Remove
+        </Button>
       </div>
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    adjustQty: (id, value) => dispatch(adjustItemQty(id, value)),
-    removeFromCart: (id) => dispatch(removeFromCart(id)),
-  };
-};
 
-export default connect(null, mapDispatchToProps)(CartItem);
+export default CartItem;

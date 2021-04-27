@@ -1,22 +1,15 @@
-import React, {  useEffect, useState } from 'react';
+import  { useSelector} from 'react-redux';
+import React, { useState, useEffect } from "react";
 import {
     Navbar, NavbarBrand, Nav, Collapse, NavItem,
-    Button , NavLink ,NavbarToggler
+    Button  ,NavbarToggler
 } from 'reactstrap';
-import { connect } from "react-redux";
+import { NavLink } from 'react-router-dom';
 
-
-const Header = ({ cart }) => {
+const Header = () => {
     const [cartCount, setCartCount] = useState(0);
-
-    const props = {
-        isNavOpen: false,
-    };
-
-    const toggleNav = () => {
-        props.isNavOpen = !this.state.isNavOpen;
-    }
-
+    
+    const cart = useSelector(state => state.shop.cart);
 
     useEffect(() => {
         let count = 0;
@@ -26,8 +19,16 @@ const Header = ({ cart }) => {
 
         setCartCount(count);
     }, [cart, cartCount]);
+
+    const props = {
+        isNavOpen: false,
+    };
+
+    const toggleNav = () => {
+        props.isNavOpen = !this.state.isNavOpen;
+    }
     return (
-        <React.Fragment>
+        <>
             <Navbar dark expand="md">
                 <div className="container">
                 <NavbarToggler onClick={toggleNav} />
@@ -35,7 +36,6 @@ const Header = ({ cart }) => {
                     <Collapse isOpen={props.isNavOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                
                             <NavLink className="nav-link" to='/cart'>
                                 <Button outline ><span className="fa fa-sign-in fa-lg"></span> Cart
                                     <div>{cartCount}</div>
@@ -47,13 +47,8 @@ const Header = ({ cart }) => {
                 </div>
             </Navbar>
 
-        </React.Fragment>
+        </>
     );
 
 }
-const mapStateToProps = (state) => {
-    return {
-        cart: state.shop.cart,
-    };
-};
-export default connect(mapStateToProps)(Header);
+export default Header;
