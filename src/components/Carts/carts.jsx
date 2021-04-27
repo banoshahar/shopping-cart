@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import CartItem from "./Cart/cart";
+import { Card,
+  CardText,
+  CardBody,
+  Button,
+  
+} from "reactstrap";
+import Checkout from './checkout'
 
 const Cart = ({ cart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
+  const [showModal, setShow] = useState(false);
+  const handleShow = () => setShow(temp => !temp); 
 
   useEffect(() => {
     let items = 0;
@@ -26,16 +35,17 @@ const Cart = ({ cart }) => {
           <CartItem key={item.id} item={item} />
         ))}
       </div>
-      <div>
+      <Card style={{ width: '100%', height: 'auto' }}>
         <h4>Cart Summary</h4>
-        <div>
-          <span>TOTAL: ({totalItems} items)</span>
-          <span>$ {totalPrice}</span>
-        </div>
-        <button>
-          Proceed To Checkout
-        </button>
-      </div>
+        <CardBody>
+          <CardText>TOTAL: ({totalItems} items)</CardText>
+          <CardText>$ {totalPrice}</CardText>
+          <Button outline onClick={handleShow}>
+                <span className="fa" /> Proceed To Checkout
+          </Button>
+          <Checkout showModal={showModal} handleShow={handleShow} />
+        </CardBody>
+      </Card>
     </div>
   );
 };

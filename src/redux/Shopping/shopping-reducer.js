@@ -43,6 +43,7 @@ const shopReducer = (state = initialState, action) => {
             const prod = state.products.find(
                 (product) => product.id === action.payload.id
             );
+            console.log(prod)
             return {
                 ...state,
                 currentItem: prod,

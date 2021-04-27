@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="grid-container">
+          <div className="App">
             <Main />
           </div>
         </Router>
