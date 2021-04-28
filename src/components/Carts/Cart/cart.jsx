@@ -12,21 +12,23 @@ import { Card,
 const CartItem = ({ item }) => {
   const [input, setInput] = useState(item.qty);
   const {adjustItemQty , removeFromCart}  = useCartHooks();
+  const {id, image , title ,description , price} = item;
 
   const onChangeHandler = (e) => {
-    setInput(e.target.value);
-    adjustItemQty(item.id, e.target.value);
+    const {value } = e.target;
+    setInput(value);
+    adjustItemQty(id, value);
   };
   
   return (
     <div className="col-12 col-md-5 m-1">
     <Row>
     <Card style={{ width: '100%' , height: 'auto' }}>
-      <CardImg top src={item.image} alt={item.name} />
+      <CardImg top src={image} alt={title} />
       <CardBody>
-        <CardTitle>{item.title}</CardTitle>
-        <CardText>{item.description}</CardText>
-        <CardText>$ {item.price}</CardText>
+        <CardTitle>{title}</CardTitle>
+        <CardText>{description}</CardText>
+        <CardText>$ {price}</CardText>
         <div>
           <label htmlFor="qty">Qty</label>
           <input
@@ -38,7 +40,7 @@ const CartItem = ({ item }) => {
             onChange={onChangeHandler}
           />
         </div>
-        <Button outline onClick={() => removeFromCart(item.id)}>
+        <Button outline onClick={() => removeFromCart(id)}>
           <span className="fa minus-circle" /> Remove
         </Button>
       </CardBody>

@@ -16,6 +16,16 @@ const Checkout = ({showModal , handleShow} ) => {
     const required = val => val && val.length;
     const maxLength = len => val => !val || val.length <= len;
     const minLength = len => val => val && val.length >= len;
+    const nameErrorMessage = {
+        required: "Required",
+        minLength: "Must be greater than 2 characters",
+        maxLength: "Must be 15 characters or less"
+    }
+    const validators = {
+        required,
+        minLength: minLength(5),
+        maxLength: maxLength(25)
+    }
 
     const handleSubmit = (values) => {
         // this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
@@ -37,21 +47,13 @@ const Checkout = ({showModal , handleShow} ) => {
                                     name="name"
                                     placeholder="Your Name"
                                     className="form-control"
-                                    validators={{
-                                        required,
-                                        minLength: minLength(3),
-                                        maxLength: maxLength(15)
-                                    }}
+                                    validators={validators}
                                 />
                                 <Errors
                                     className="text-danger"
                                     model=".name"
                                     show="touched"
-                                    messages={{
-                                        required: "Required",
-                                        minLength: "Must be greater than 2 characters",
-                                        maxLength: "Must be 15 characters or less"
-                                    }}
+                                    messages={nameErrorMessage}
                                 />
                             </Col>
                         </Row>
@@ -66,21 +68,13 @@ const Checkout = ({showModal , handleShow} ) => {
                                     name="address"
                                     rows={5}
                                     className="form-control"
-                                    validators={{
-                                        required,
-                                        minLength: minLength(5),
-                                        maxLength: maxLength(25)
-                                    }}
+                                    validators={validators}
                                 />
                                 <Errors
                                     className="text-danger"
                                     model=".address"
                                     show="touched"
-                                    messages={{
-                                        required: "Required",
-                                        minLength: "Must be greater than 2 characters",
-                                        maxLength: "Must be 15 characters or less"
-                                    }}
+                                    messages={nameErrorMessage}
                                 />
                             </Col>
                         </Row>

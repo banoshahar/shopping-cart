@@ -1,8 +1,10 @@
 import * as actionTypes from './shopping-types';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useMemo } from "react";
 
 const useCartHooks = () => {
     const dispatch = useDispatch()
+    const cart = useSelector(state => state.shop.cart);
 
     const addToCart = (itemID) => {
         dispatch({
@@ -40,8 +42,19 @@ const useCartHooks = () => {
             },
         });
     };
+
+    const cartTotal = useMemo(() => {
+        let count = 0;
+        let price = 0;
+        cart.forEach((item) => {
+            count += item.qty;
+            price += item.qty * item.price;
+        });
+        return {count ,price};
+    }, [cart]);
+
     return {
-        addToCart , removeFromCart , adjustItemQty ,loadCurrentItem
+        addToCart, removeFromCart, adjustItemQty, loadCurrentItem, cartTotal
     }
 }
 

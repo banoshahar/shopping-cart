@@ -8,9 +8,9 @@ const Products = () => {
   return (
   
     <div className="col-12 col-md-5 m-1">
-      {products.map((product) => (
+      {!!products && products.length>0 ? products.map((product) => (
         <Product key={product.id} product={product} />
-      ))}
+      )): <Product />}
     </div>
   );
 };

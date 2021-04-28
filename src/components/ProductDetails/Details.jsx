@@ -7,13 +7,13 @@ import useCartHooks from "../../redux/Shopping/shopping-actions";
 const Details = () => {
   const current = useSelector(state => state.shop.currentItem);
   const { addToCart, loadCurrentItem } = useCartHooks()
-  const params = useParams();
+  const { id = null } = useParams()
 
   useEffect(() => {
     if (!current) {
-      loadCurrentItem(Number(params.id))
+      loadCurrentItem(Number(id))
     }
-  }, [params]);
+  }, [id]);
 
   return (
     <div>
