@@ -21,7 +21,7 @@ const Products = () => {
         <h2>Loading...</h2>
       ) : error ? (
         <h2>{error}</h2>
-      ) : (
+      ) : ( !!products && 
         products.map((product) => (
           <Product
             key={product._id} product={product}

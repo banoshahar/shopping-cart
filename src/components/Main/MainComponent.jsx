@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../Header/HeaderComponent';
 import Footer from '../Footer/FooterComponent';
 import { Switch, Route , Redirect} from 'react-router-dom';
-import Cart from "../Carts/carts.jsx";
-import Products from "../Products/Products.jsx";
+import Cart from "../Carts";
+import Products from "../Products";
 import Details from "../ProductDetails/Details";
 
 

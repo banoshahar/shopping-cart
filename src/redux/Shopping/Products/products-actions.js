@@ -1,11 +1,12 @@
 import * as actionTypes from '../shopping-types';
 import axios from "axios";
+import { getAllProducts } from './products-api';
 
 export const getProducts = () => async (dispatch) => {
     try {
         dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
 
-        const { data } = await axios.get("/api/products");
+        const {data} = await getAllProducts();
 
         dispatch({
             type: actionTypes.GET_PRODUCTS_SUCCESS,
