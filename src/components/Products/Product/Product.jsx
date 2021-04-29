@@ -6,22 +6,22 @@ const Product = ({ product }) => {
   const {addToCart }  = useCartHooks();
 
   return (
-    <div className='container'>
+    <div className='prd--card'>
+      <div className="prd--card-img">
       <img
         src={product.image}
         alt={product.title}
       />
-      <div>
-        <p>{product.title}</p>
+      </div>
+      <div className="prd--card-body">
+        <h2>{product.title}</h2>
         <p>{product.description}</p>
-        <p> {product.price}</p>
+        <p> Price: ${product.price}</p>
       </div>
 
-      <div>
+      <div className="prd--card-ftr">
         <Link to={`/product/${product._id}`}>
-          <button>
-            View Item
-          </button>
+          <Button variant="primary">View Item</Button>
         </Link>
         <button
           onClick={() => addToCart(product._id)}

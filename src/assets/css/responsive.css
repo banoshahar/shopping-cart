@@ -1,0 +1,15 @@
+@media (min-width: 576px) {
+    .container--lg {
+        max-width: 95%;  
+    }
+}
+@media (min-width: 1440px) {
+    .container--lg {
+        max-width: 90%;  
+    }
+}
+@media (max-width: 991px) {
+    .nav--inner {
+        max-width: 90%;  
+    }
+}

@@ -2,6 +2,7 @@ import React , { useEffect }from "react";
 import Product from "./Product/Product";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts as listProducts } from "../../redux/Shopping/Products/products-actions";
+import { Row, Col } from 'react-bootstrap';
 
 
 const Products = () => {
@@ -15,8 +16,9 @@ const Products = () => {
   }, [dispatch]);
 
   return (
-
-    <div className="col-12 col-md-5 m-1">
+    <div className="container header--spacing flex--col-grow">
+    <Row>
+      <Col lg="4" md="6" xs="12">
       {loading ? (
         <h2>Loading...</h2>
       ) : error ? (
@@ -28,6 +30,8 @@ const Products = () => {
           />
         ))
       )}
+      </Col>
+    </Row>
     </div>
   );
 };

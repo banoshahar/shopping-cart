@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Inter UI';
+    src: url('InterUI-Medium.woff2') format('woff2'),
+        url('InterUI-Medium.woff') format('woff'),
+        url('InterUI-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter UI';
+    src: url('InterUI-Regular.woff2') format('woff2'),
+        url('InterUI-Regular.woff') format('woff'),
+        url('InterUI-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter UI';
+    src: url('InterUI-Bold.woff2') format('woff2'),
+        url('InterUI-Bold.woff') format('woff'),
+        url('InterUI-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter UI';
+    src: url('InterUI-Black.woff2') format('woff2'),
+        url('InterUI-Black.woff') format('woff'),
+        url('InterUI-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
