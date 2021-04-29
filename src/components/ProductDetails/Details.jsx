@@ -1,39 +1,48 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
-import useCartHooks from "../../redux/Shopping/shopping-actions";
-
+import useCartHooks from "../../redux/Shopping/Cart/cart-actions";
+import { getProductDetails as singleProduct } from "../../redux/Shopping/Products/products-actions";
 
 const Details = () => {
-  const current = useSelector(state => state.shop.currentItem);
-  const { addToCart, loadCurrentItem } = useCartHooks()
-  const { id = null } = useParams()
 
+  const dispatch = useDispatch();
+
+  const productDetails = useSelector((state) => state.getProductDetails);
+  const { loading, error, currentItem } = productDetails;
+  const { id = null } = useParams();
+ 
   useEffect(() => {
-    if (!current) {
-      loadCurrentItem(Number(id))
+    
+    if (!currentItem) {
+      dispatch(singleProduct(id));
     }
-  }, [id]);
+  }, [dispatch, currentItem]);
 
+  const { addToCart } = useCartHooks();
   return (
     <div>
-      { !!current && (
-         <div className='container' >
-         <img
-           src={current.image}
-           alt={current.title}
-         />
-         <div>
-           <p>{current.title}</p>
-           <p>{current.description}</p>
-           <p>$ {current.price}</p>
- 
-           <button onClick={() => addToCart(current.id)}>
-             Add To Cart
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : error ? (
+        <h2>{error}</h2>
+      ) : (!!currentItem && (
+        <div className='container' >
+          <img
+            src={currentItem.image}
+            alt={currentItem.title}
+          />
+          <div>
+            <p>{currentItem.title}</p>
+            <p>{currentItem.description}</p>
+            <p>$ {currentItem.price}</p>
+
+            <button onClick={() => addToCart(currentItem._id)}>
+              Add To Cart
          </button>
-         </div>
-       </div>
-      )}  
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,16 +1,19 @@
-import * as actionTypes from './shopping-types';
+import * as actionTypes from '../shopping-types';
 import { useDispatch, useSelector } from "react-redux";
 import { useMemo } from "react";
 
 const useCartHooks = () => {
     const dispatch = useDispatch()
     const cart = useSelector(state => state.shop.cart);
+    const allProducts = useSelector(state => state.getProducts);
+    const {products} = allProducts
 
     const addToCart = (itemID) => {
         dispatch({
             type: actionTypes.ADD_TO_CART,
             payload: {
                 id: itemID,
+                products:products
             },
         });
     };
@@ -28,17 +31,8 @@ const useCartHooks = () => {
         dispatch({
             type: actionTypes.ADJUST_ITEM_QTY,
             payload: {
-                id: itemID,
+                itemID: itemID,
                 qty: value
-            },
-        });
-    };
-
-    const loadCurrentItem = (itemID) => {
-        dispatch({
-            type: actionTypes.LOAD_CURRENT_ITEM,
-            payload: {
-                id: itemID,
             },
         });
     };
@@ -54,7 +48,7 @@ const useCartHooks = () => {
     }, [cart]);
 
     return {
-        addToCart, removeFromCart, adjustItemQty, loadCurrentItem, cartTotal
+        addToCart, removeFromCart, adjustItemQty, cartTotal
     }
 }
 

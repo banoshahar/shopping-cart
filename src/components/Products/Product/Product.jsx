@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useCartHooks from "../../../redux/Shopping/shopping-actions";
+import useCartHooks from "../../../redux/Shopping/Cart/cart-actions";
 
 const Product = ({ product }) => {
-  const {addToCart , loadCurrentItem}  = useCartHooks();
+  const {addToCart }  = useCartHooks();
 
   return (
     <div className='container'>
@@ -18,14 +18,13 @@ const Product = ({ product }) => {
       </div>
 
       <div>
-        <Link to={`/product/${product.id}`}>
-          <button
-            onClick={() => loadCurrentItem(product.id)}>
+        <Link to={`/product/${product._id}`}>
+          <button>
             View Item
           </button>
         </Link>
         <button
-          onClick={() => addToCart(product.id)}
+          onClick={() => addToCart(product._id)}
         >
           Add To Cart
         </button>

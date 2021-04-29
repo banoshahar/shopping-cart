@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CartItem from "./Cart/cart";
-import useCartHooks from '../../redux/Shopping/shopping-actions';
+import useCartHooks from '../../redux/Shopping/Cart/cart-actions';
 import {
   Card,
   CardText,
@@ -22,7 +22,7 @@ const Cart = () => {
     <div>
       <div>
         {cart.map((item) => (
-          <CartItem key={item.id} item={item} />
+          <CartItem key={item._id} item={item} />
         ))}
       </div>
       <Card style={{ width: '100%', height: 'auto' }}>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useCartHooks from "../../../redux/Shopping/shopping-actions";
+import useCartHooks from "../../../redux/Shopping/Cart/cart-actions";
 import { Card,
   CardImg,
   CardText,
@@ -12,12 +12,13 @@ import { Card,
 const CartItem = ({ item }) => {
   const [input, setInput] = useState(item.qty);
   const {adjustItemQty , removeFromCart}  = useCartHooks();
-  const {id, image , title ,description , price} = item;
+  console.log(item)
+  const {_id, image , title ,description , price} = item;
 
   const onChangeHandler = (e) => {
     const {value } = e.target;
     setInput(value);
-    adjustItemQty(id, value);
+    adjustItemQty(_id, value);
   };
   
   return (
@@ -40,7 +41,7 @@ const CartItem = ({ item }) => {
             onChange={onChangeHandler}
           />
         </div>
-        <Button outline onClick={() => removeFromCart(id)}>
+        <Button outline onClick={() => removeFromCart(_id)}>
           <span className="fa minus-circle" /> Remove
         </Button>
       </CardBody>
