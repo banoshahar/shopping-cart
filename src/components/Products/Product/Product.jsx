@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useCartHooks from "../../../redux/Shopping/Cart/cart-actions";
+import { Button } from 'react-bootstrap';
 
 const Product = ({ product }) => {
   const {addToCart }  = useCartHooks();
