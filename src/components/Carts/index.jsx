@@ -19,7 +19,7 @@ const Cart = () => {
   const {count ,price } = cartTotal
 
   return (
-    <div>
+    <div className="container flex--col-grow summary--container">
       <div>
         {cart.map((item) => (
           <CartItem key={item._id} item={item} />

@@ -8,8 +8,14 @@
         max-width: 90%;  
     }
 }
+@media (min-width: 992px) {
+    .nav--container .navbar-expand-lg .navbar-collapse {
+    display: none!important;
+    flex-basis: auto;
+}
+}
 @media (max-width: 991px) {
-    .nav--inner {
-        max-width: 90%;  
+    .main--navbar .navbar-brand {
+        margin-left: 12px;
     }
 }

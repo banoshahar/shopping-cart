@@ -1,46 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
+
+
 function Footer(props) {
     return (
         <div className="main--footer">
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-4">
-                        <h5>Links</h5>
-                        <ul className="list-unstyled">
-                        <li><Link to='/home'>Home</Link></li>
-                        <li><Link to='/aboutus'>About Us</Link></li>
-                        <li><Link to='/menu'>Menu</Link></li>
-                        <li><Link to='/contactus'>Contact Us</Link></li>
-                        </ul>
-                    </div>
-                    <div className="col-7">
-                        <h5>Our Address</h5>
-                        <address>
-                            121, Clear Water Bay Road<br />
-		              Clear Water Bay, Kowloon<br />
-		              HONG KONG<br />
-                            <i className="fa fa-phone fa-lg"></i>: +852 1234 5678<br />
-                            <i className="fa fa-fax fa-lg"></i>: +852 8765 4321<br />
-                            <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">
-                                confusion@food.net</a>
-                        </address>
-                    </div>
-                    <div className="col-12">
-                        <div className="text-center">
-                            <a className="btn btn-social-icon btn-google" href="http://google.com/+"><i className="fa fa-google-plus"></i></a>
-                            <a className="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i className="fa fa-facebook"></i></a>
-                            <a className="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i className="fa fa-linkedin"></i></a>
-                            <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i className="fa fa-twitter"></i></a>
-                            <a className="btn btn-social-icon btn-google" href="http://youtube.com/"><i className="fa fa-youtube"></i></a>
-                            <a className="btn btn-social-icon" href="mailto:"><i className="fa fa-envelope-o"></i></a>
+            <div className="container--lg">
+                <Row>
+                    <Col md="4" sm="6">
+                        <div className="ftr--content">
+                        <h3 className="sm--hd font--semiBold dark--text mb-3">Address</h3>
+                        <address className="sm--para grey--text">
+                            121, Clear Water Bay Road,<br/>
+                            Clear Water Bay,<br/> 
+                            Kowloon HONG KONG</address>
+                      </div>
+                    </Col>
+                    <Col md="4" sm="6">
+                        <div className="ftr--content">
+                        <h3 className="sm--hd font--semiBold dark--text mb-3">Contact Us</h3>
+                            <div className="sm--para grey--text mb-2"><i className="fa fa-phone mr-2"></i> +852 1234 5678</div>
+                            <div className="sm--para grey--text mb-2"><i className="fa fa-fax mr-2"></i> +852 8765 4321</div>
+                            <div className="sm--para grey--text"><i className="fa fa-envelope mr-2"></i> <a href="#"
+                            className="sm--para grey--text text-decoration-none">
+                                confusion@food.net</a></div>
+                        </div>        
+                    </Col>
+                    <Col md="4" sm="6" xs="12">
+                        <div className="mt-md-0 mt-3 ftr--content">
+                        <h3 className="sm--hd font--semiBold dark--text mb-3">Join Us</h3>
+                            <div className="d-flex align-items-center">
+                                <a className="social--link social--fb text-decoration-none" href="http://www.facebook.com"><i className="fa fa-facebook"></i></a>
+                                <a className="social--link social--ldIn text-decoration-none" href="http://www.linkedin.com"><i className="fa fa-linkedin"></i></a>
+                                <a className="social--link social--insta text-decoration-none" href="http://www.instagram.com"><i className="fa fa-instagram"></i></a>
+                                <a className="social--link social--twt text-decoration-none" href="http://twitter.com/"><i className="fa fa-twitter"></i></a>
+                                
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div className="row justify-content-center">
-                    <div className="col-auto">
-                        <p>© Copyright 2018 Ristorante Con Fusion</p>
-                    </div>
+                    </Col>
+                </Row>
+                <div className="ftr--cp">
+                <Row>
+                    <Col xs="12">
+                        <p className="text-center sm--para blue--text">© Copyright 2018 Ristorante Con Fusion</p>
+                    </Col>
+                </Row>
                 </div>
             </div>
         </div>

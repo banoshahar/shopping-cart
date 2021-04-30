@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useCartHooks from "../../../redux/Shopping/Cart/cart-actions";
-import { Button } from 'react-bootstrap';
+import { Button, Col } from 'react-bootstrap';
 
 const Product = ({ product }) => {
   const {addToCart }  = useCartHooks();
 
   return (
+    <Col lg="4" md="6" xs="12" className="d-flex">
     <div className='prd--card'>
       <div className="prd--card-img">
       <img
@@ -14,23 +15,22 @@ const Product = ({ product }) => {
         alt={product.title}
       />
       </div>
-      <div className="prd--card-body">
-        <h2>{product.title}</h2>
-        <p>{product.description}</p>
-        <p> Price: ${product.price}</p>
+      <div className="prd--card-body flex--col-grow">
+        <h2 className="sm--hd dark--text font--semiBold mb-2">{product.title}</h2>
+        <p className="sm--para grey--text mb-2">{product.description}</p>
+        <p className="sm--para dark--text">
+           <span className="normal--para purple--text font--semiBold">Price:</span> ${product.price}
+           </p>
       </div>
 
       <div className="prd--card-ftr">
         <Link to={`/product/${product._id}`}>
-          <Button variant="primary">View Item</Button>
+          <Button variant="primary" className="btn prd--card-btn">View Item</Button>
         </Link>
-        <button
-          onClick={() => addToCart(product._id)}
-        >
-          Add To Cart
-        </button>
+        <Button variant="secondary" className="btn prd--card-btn mr-0" onClick={() => addToCart(product._id)}>Add To Cart</Button>
       </div>
     </div>
+    </Col>
   );
 };
 
