@@ -18,14 +18,14 @@ const Header = () => {
             <div className="container--lg">
                 <Navbar dark expand="lg" className="main--navbar">
                     <NavbarToggler onClick={handleShow} />
-                    <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" alt='Shopping Cart' /></NavbarBrand>
+                    <NavbarBrand className="mr-auto" href="/"><img src='assets/images/neyborly.png' height="30" width="41" alt='Shopping Cart' /></NavbarBrand>
 
                     <div className="hdr--center d-lg-flex d-none alig-items-center">
                         <Link to={'/login'}>
-                        <Button className="btn hdr--btn login--btn">Login</Button>
+                            <Button className="btn hdr--btn login--btn">Login</Button>
                         </Link>
                         <Link to={'/register'}>
-                        <Button className="btn hdr--btn sigUp--btn">Sign Up</Button>
+                            <Button className="btn hdr--btn sigUp--btn">Sign Up</Button>
                         </Link>
                         <Button className="btn hdr--btn summary--btn" onClick={() => history.push('/cart')}>View summary</Button>
                     </div>
@@ -57,9 +57,14 @@ const Header = () => {
                                 </NavLink>
                             </NavItem> */}
                             <div className="nav--sm-btn d-flex flex-column alig-items-center">
-                                <Button className="btn hdr--btn login--btn">Login</Button>
-                                <Button className="btn hdr--btn sigUp--btn">Sign Up</Button>
-                                <Button className="btn hdr--btn summary--btn">View summary</Button>
+                                <Link to={'/login'}>
+                                    <Button className="btn hdr--btn login--btn">Login</Button>
+                                </Link>
+                                <Link to={'/register'}>
+                                    <Button className="btn hdr--btn sigUp--btn">Sign Up</Button>
+                                </Link>
+
+                                <Button className="btn hdr--btn summary--btn" onClick={() => history.push('/cart')}>View summary</Button>
                             </div>
                         </Nav>
                     </Collapse>

@@ -19,3 +19,11 @@
         margin-left: 12px;
     }
 }
+@media (max-width: 767px) {
+    .login--inner {
+        padding: 24px 16px;
+    }
+}
+/* @media (max-width: 575px) {
+
+} */
