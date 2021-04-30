@@ -28,11 +28,14 @@ const Register = () => {
     <div className="cart--main flex--col-grow">
       <div className="container flex--col-grow align-items-center justify-content-center">
         <div className="login--inner">
+        <div className="login--logo">
+            <img src='assets/images/neyborly-blue.png' alt='Shopping Cart Logo' />
+          </div>
           <Form className="login--form w-100" onSubmit={handleSubmit}>
 
           <Form.Group controlId="formBasicName">
               <Form.Label>Full Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter Full Name" 
+              <Form.Control type="email" placeholder="Enter Full Name"
               value={name} 
               onChange = {e => setName(e.target.value)}/>
               {/* <Form.Text className="text-muted">
@@ -55,7 +58,7 @@ const Register = () => {
               onChange = {e => setPassword(e.target.value)} />
             </Form.Group>
 
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center justify-content-end pt-3">
             <Button variant="primary" type="submit" className="hdr--btn login--btn">
               Confirm
             </Button>

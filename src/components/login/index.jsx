@@ -39,7 +39,7 @@ const Login = () => {
               value={password} 
               onChange = {e => setPassword(e.target.value)} />
             </Form.Group>
-            <div className="d-flex align-items-center justify-content-end pt-3">
+            <div className="d-flex align-items-center justify-content-end  pt-3">
             <Button variant="primary" type="submit" className="hdr--btn login--btn">
               Confirm
             </Button>
