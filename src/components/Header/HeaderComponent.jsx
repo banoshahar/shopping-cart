@@ -18,7 +18,7 @@ const Header = () => {
         <div className="container--lg">  
             <Navbar dark expand="lg" className="main--navbar"> 
                 <NavbarToggler onClick={handleShow} />
-                    <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" alt='Shopping Cart' /></NavbarBrand>
+                    <NavbarBrand className="mr-auto" href="/"><img src='assets/images/neyborly.png' alt='Shopping Cart' /></NavbarBrand>
                     
                     <div className="hdr--center d-lg-flex d-none alig-items-center">
                         <Button className="btn hdr--btn login--btn">Login</Button>
@@ -36,8 +36,9 @@ const Header = () => {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#"></Dropdown.Item>
-                            <Dropdown.Item href="#">Username Username Username Username Username</Dropdown.Item>
+                            <div className="drp--userNm">
+                                User name user name user name 
+                            </div>
                             <Dropdown.Item href="#" className="text-danger"><i className="fa fa-sign-out-alt text-danger"></i>Log out</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
