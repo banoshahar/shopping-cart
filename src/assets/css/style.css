@@ -247,7 +247,8 @@ input {
   overflow: hidden;
 }
 .prd--card-container,
-.summary--container {
+.summary--container,
+.view--container {
   margin-top: 62px;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -294,6 +295,7 @@ input {
 }
 .prd--card-ftr {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 8px 16px 24px 16px; 
@@ -452,6 +454,15 @@ input {
   border: 1px solid #007285;
   color: #ffffff;
 }
+.danger--btn {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
+.danger--btn.btn-secondary:focus, .danger--btn.btn-secondary:hover, .danger--btn.btn-secondary:not(:disabled):not(.disabled):active {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+  color: #ffffff;
+}
 .nav--sm-btn {
   width: 100%;
   max-width: 160px;
@@ -493,8 +504,13 @@ input {
   max-width: 240px;
   top: 12px!important;
 }
+.drpDn--main .dropdown-item {
+  border-top: 1px solid #cccccc;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
 .drpDn--main .drp--userNm {
-  padding: 24px;
+  padding: 16px 24px;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -527,4 +543,18 @@ input {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.text-danger {
+  font-size: 10px;
+}
+.prd--card-view {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+.prd--card-view .prd--card-img {
+ height: 220px;
+}
+.text--danger {
+  color:#dc3545;
 }
