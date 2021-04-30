@@ -18,16 +18,19 @@ const Product = ({ product }) => {
       <div className="prd--card-body flex--col-grow">
         <h2 className="sm--hd dark--text font--semiBold mb-2">{product.title}</h2>
         <p className="sm--para grey--text mb-2">{product.description}</p>
-        <p className="sm--para dark--text">
-           <span className="normal--para purple--text font--semiBold">Price:</span> ${product.price}
-           </p>
+        
       </div>
 
       <div className="prd--card-ftr">
+      <p className="md--para grey--text">
+           <span className="lg--para dark--text font--semiBold">$</span> {product.price}
+      </p>
+      <div className="d-flex align-items-center justify-content-center mt-3 w-100">
         <Link to={`/product/${product._id}`}>
           <Button variant="primary" className="btn prd--card-btn">View Item</Button>
         </Link>
         <Button variant="secondary" className="btn prd--card-btn mr-0" onClick={() => addToCart(product._id)}>Add To Cart</Button>
+      </div>  
       </div>
     </div>
     </Col>

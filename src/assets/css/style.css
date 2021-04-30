@@ -294,6 +294,7 @@ input {
 }
 .prd--card-ftr {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 8px 16px 24px 16px; 
@@ -452,6 +453,15 @@ input {
   border: 1px solid #007285;
   color: #ffffff;
 }
+.danger--btn {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
+.danger--btn.btn-secondary:focus, .danger--btn.btn-secondary:hover, .danger--btn.btn-secondary:not(:disabled):not(.disabled):active {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+  color: #ffffff;
+}
 .nav--sm-btn {
   width: 100%;
   max-width: 160px;
@@ -527,4 +537,7 @@ input {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.text-danger {
+  font-size: 10px;
 }
