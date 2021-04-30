@@ -6,7 +6,6 @@ const shopReducer = (state = { cart: [] }, action) => {
     switch (action.type) {
         case actionTypes.ADD_TO_CART:
             // Great Item data from products array
-            
             const { products ,id } = action.payload
             const item = products.find(
                 (product) => product._id === id

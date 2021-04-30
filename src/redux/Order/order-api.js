@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-export const placeOrder = (data) => async () => {
+export const placeOrder = async(data)  => {
   const headers = {
     'Content-Type': 'application/json',
   }

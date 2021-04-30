@@ -9,18 +9,12 @@ import {
     Label
 } from "reactstrap";
 import { Control, LocalForm, Errors } from "react-redux-form";
-import { useSelector, useDispatch } from "react-redux";
-import { placeOrderAction } from "../../redux/Order/order-actions";
-import useCartHooks from '../../redux/Cart/cart-actions';
+import  useOrderHooks  from "../../redux/Order/order-actions";
 
 const Checkout = ({ showModal, handleShow }) => {
-    const dispatch = useDispatch();
     const [name, setName] = useState(" ");
     const [address, setAddress] = useState(" ");
-    let data = useState({});
-    const cart = useSelector(state => state.shop.cart)
-    const { cartTotal } = useCartHooks()
-    const { price } = cartTotal
+    let {placeOrderAction} = useOrderHooks();
 
     const required = val => val && val.length;
     const maxLength = len => val => !val || val.length <= len;
@@ -38,14 +32,7 @@ const Checkout = ({ showModal, handleShow }) => {
     }
 
     const handleSubmit = () => {
-        data = {
-            product: cart,
-            address: address,
-            name: name,
-            total: price
-        }
-        dispatch(placeOrderAction(data));
-
+         placeOrderAction(address,name,);
     }
     return (
         <div>

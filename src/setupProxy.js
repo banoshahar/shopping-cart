@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://shopping-bano.herokuapp.com',
+      target: 'http://127.0.0.1:4000',
       changeOrigin: true,
     })
   );
