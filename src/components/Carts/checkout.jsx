@@ -9,18 +9,18 @@ import {
     Label
 } from "reactstrap";
 import { Control, LocalForm, Errors } from "react-redux-form";
-import { useSelector ,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { placeOrderAction } from "../../redux/Order/order-actions";
 import useCartHooks from '../../redux/Cart/cart-actions';
 
-const Checkout = ({showModal , handleShow} ) => {
+const Checkout = ({ showModal, handleShow }) => {
     const dispatch = useDispatch();
-    const [name,setName] = useState(" ");
-    const [address,setAddress] = useState(" ");
+    const [name, setName] = useState(" ");
+    const [address, setAddress] = useState(" ");
     let data = useState({});
     const cart = useSelector(state => state.shop.cart)
-    const {cartTotal} = useCartHooks()
-    const {count ,price } = cartTotal
+    const { cartTotal } = useCartHooks()
+    const { price } = cartTotal
 
     const required = val => val && val.length;
     const maxLength = len => val => !val || val.length <= len;
@@ -39,12 +39,13 @@ const Checkout = ({showModal , handleShow} ) => {
 
     const handleSubmit = () => {
         data = {
-            product:cart,
-            address:address,
-            name:name,
-            total:price
+            product: cart,
+            address: address,
+            name: name,
+            total: price
         }
-       dispatch(placeOrderAction(data));
+        dispatch(placeOrderAction(data));
+
     }
     return (
         <div>
@@ -64,7 +65,7 @@ const Checkout = ({showModal , handleShow} ) => {
                                     placeholder="Your Name"
                                     className="form-control"
                                     validators={validators}
-                                    value = {name}
+                                    value={name}
                                     onChange={e => setName(e.target.value)}
                                 />
                                 <Errors
@@ -98,7 +99,7 @@ const Checkout = ({showModal , handleShow} ) => {
                                 />
                             </Col>
                         </Row>
-                        <Button type="submit" value="submit" color="primary">
+                        <Button type="submit" onClick={handleShow} value="submit" color="primary">
                             Submit
                         </Button>
                     </LocalForm>
