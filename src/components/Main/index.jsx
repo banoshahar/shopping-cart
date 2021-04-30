@@ -6,6 +6,7 @@ import Cart from "../Carts";
 import Products from "../Products";
 import Details from "../ProductDetails";
 import Login from "../login";
+import Register from "../Registration";
 
 
 const Main = () => {
@@ -17,6 +18,7 @@ const Main = () => {
         <Route exact path="/cart" component={Cart} />
         <Route path='/product/:id' component={Details} />
         <Route path='/login' component={Login} />
+        <Route path='/register' component={Register} />
         <Redirect to="/" />
       </Switch>
       <Footer />
