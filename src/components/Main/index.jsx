@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from '../Header/HeaderComponent';
-import Footer from '../Footer/FooterComponent';
+import Header from '../Header';
+import Footer from '../Footer';
 import { Switch, Route , Redirect} from 'react-router-dom';
 import Cart from "../Carts";
 import Products from "../Products";
-import Details from "../ProductDetails/Details";
+import Details from "../ProductDetails";
 import Login from "../login";
 
 

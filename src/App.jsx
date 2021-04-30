@@ -1,4 +1,4 @@
-import Main from './components/Main/MainComponent.jsx'
+import Main from './components/Main'
 import {
   BrowserRouter as Router,
 } from "react-router-dom";

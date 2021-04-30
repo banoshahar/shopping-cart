@@ -6,7 +6,6 @@ const shopReducer = (state = { cart: [] }, action) => {
     switch (action.type) {
         case actionTypes.ADD_TO_CART:
             // Great Item data from products array
-            
             const { products ,id } = action.payload
             const item = products.find(
                 (product) => product._id === id
@@ -15,7 +14,6 @@ const shopReducer = (state = { cart: [] }, action) => {
             const inCart = state.cart.find((item) =>
                 item._id === id ? true : false
             );
-            console.log(inCart)
             return {
                 ...state,
                 cart: inCart
@@ -33,7 +31,6 @@ const shopReducer = (state = { cart: [] }, action) => {
             };
         case actionTypes.ADJUST_ITEM_QTY:
             const { itemID , qty} = action.payload
-            console.log(qty)
             return {
                 ...state,
                 cart: state.cart.map((item) =>

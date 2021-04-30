@@ -4,9 +4,8 @@ import {
     Button  ,NavbarToggler
 } from 'reactstrap';
 import { NavLink,useHistory } from 'react-router-dom';
-import useCartHooks from '../../redux/Shopping/Cart/cart-actions';
 import { Dropdown } from 'react-bootstrap';
-
+import useCartHooks from '../../redux/Cart/cart-actions';
 
 const Header = () => {
     const [isNavOpen ,toggleNav] = useState(false);

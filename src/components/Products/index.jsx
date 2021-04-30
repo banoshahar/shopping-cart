@@ -1,19 +1,18 @@
 import React , { useEffect }from "react";
-import Product from "./Product/Product";
-import { useSelector, useDispatch } from "react-redux";
-import { getProducts as listProducts } from "../../redux/Shopping/Products/products-actions";
+import { useSelector } from "react-redux";
 import { Row, Col } from 'react-bootstrap';
-
+import Product from "./Product";
+import useProductHooks   from "../../redux/Products/products-actions";
 
 const Products = () => {
-  const dispatch = useDispatch();
-
-  const getProducts = useSelector(state => state.getProducts);
-  const { products, loading, error } = getProducts;
+  
+  const allProducts = useSelector(state => state.getProducts);
+  const { products, loading, error } = allProducts;
+  const { getProducts } = useProductHooks();
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+    getProducts();
+  }, []);
 
   return (
     <div className="container prd--card-container flex--col-grow">

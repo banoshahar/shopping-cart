@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Modal,
     ModalHeader,
@@ -9,17 +9,21 @@ import {
     Label
 } from "reactstrap";
 import { Control, LocalForm, Errors } from "react-redux-form";
+import  useOrderHooks  from "../../redux/Order/order-actions";
 
-const Checkout = ({showModal , handleShow} ) => {
-    
+const Checkout = ({ showModal, handleShow }) => {
+    const [name, setName] = useState(" ");
+    const [address, setAddress] = useState(" ");
+    let {placeOrderAction} = useOrderHooks();
 
     const required = val => val && val.length;
     const maxLength = len => val => !val || val.length <= len;
     const minLength = len => val => val && val.length >= len;
+
     const nameErrorMessage = {
-        required: "Required",
-        minLength: "Must be greater than 2 characters",
-        maxLength: "Must be 15 characters or less"
+        required: "Required ",
+        minLength: " Must be greater than 2 characters",
+        maxLength: " Must be 15 characters or less"
     }
     const validators = {
         required,
@@ -27,8 +31,8 @@ const Checkout = ({showModal , handleShow} ) => {
         maxLength: maxLength(25)
     }
 
-    const handleSubmit = (values) => {
-        // this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+    const handleSubmit = () => {
+         placeOrderAction(address,name,);
     }
     return (
         <div>
@@ -48,6 +52,8 @@ const Checkout = ({showModal , handleShow} ) => {
                                     placeholder="Your Name"
                                     className="form-control"
                                     validators={validators}
+                                    value={name}
+                                    onChange={e => setName(e.target.value)}
                                 />
                                 <Errors
                                     className="text-danger"
@@ -69,6 +75,8 @@ const Checkout = ({showModal , handleShow} ) => {
                                     rows={5}
                                     className="form-control"
                                     validators={validators}
+                                    value={address}
+                                    onChange={e => setAddress(e.target.value)}
                                 />
                                 <Errors
                                     className="text-danger"
@@ -78,7 +86,7 @@ const Checkout = ({showModal , handleShow} ) => {
                                 />
                             </Col>
                         </Row>
-                        <Button type="submit" value="submit" color="primary">
+                        <Button type="submit" onClick={handleShow} value="submit" color="primary">
                             Submit
                         </Button>
                     </LocalForm>

@@ -1,14 +1,18 @@
 import { combineReducers} from "redux";
-import shopReducer from "./Shopping/Cart/cart-reducer";
+import shopReducer from "./Cart/cart-reducer";
 import {
     getProductsReducer,
     getProductDetails,
-  } from "./Shopping/Products/products-reducer";
+  } from "./Products/products-reducer";
+  import {
+    placeOrderReducer
+  } from "./Order/order-reducer";
 
 const rootReducer = combineReducers({
     shop:shopReducer,
     getProducts: getProductsReducer,
     getProductDetails: getProductDetails,
+    orderReducer:placeOrderReducer
 });
 
 export default rootReducer;
