@@ -1,7 +1,7 @@
 import React , { useEffect }from "react";
-import Product from "./Product/Product";
+import Product from "./Product";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts as listProducts } from "../../redux/Shopping/Products/products-actions";
+import { getProducts as listProducts } from "../../redux/Products/products-actions";
 
 
 const Products = () => {

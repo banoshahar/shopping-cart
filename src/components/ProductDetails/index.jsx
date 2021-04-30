@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
-import useCartHooks from "../../redux/Shopping/Cart/cart-actions";
-import { getProductDetails as singleProduct } from "../../redux/Shopping/Products/products-actions";
+import useCartHooks from "../../redux/Cart/cart-actions";
+import { getProductDetails as singleProduct } from "../../redux/Products/products-actions";
 
 const Details = () => {
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useCartHooks from "../../redux/Shopping/Cart/cart-actions";
+import useCartHooks from "../../redux/Cart/cart-actions";
 import { Card,
   CardImg,
   CardText,
@@ -12,7 +12,6 @@ import { Card,
 const CartItem = ({ item }) => {
   const [input, setInput] = useState(item.qty);
   const {adjustItemQty , removeFromCart}  = useCartHooks();
-  console.log(item)
   const {_id, image , title ,description , price} = item;
 
   const onChangeHandler = (e) => {

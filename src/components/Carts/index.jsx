@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CartItem from "./cart";
-import useCartHooks from '../../redux/Shopping/Cart/cart-actions';
+import useCartHooks from '../../redux/Cart/cart-actions';
 import {
   Card,
   CardText,

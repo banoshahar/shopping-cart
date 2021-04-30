@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Modal,
     ModalHeader,
@@ -9,17 +9,27 @@ import {
     Label
 } from "reactstrap";
 import { Control, LocalForm, Errors } from "react-redux-form";
+import { useSelector ,useDispatch } from "react-redux";
+import { placeOrderAction } from "../../redux/Order/order-actions";
+import useCartHooks from '../../redux/Cart/cart-actions';
 
 const Checkout = ({showModal , handleShow} ) => {
-    
+    const dispatch = useDispatch();
+    const [name,setName] = useState(" ");
+    const [address,setAddress] = useState(" ");
+    let data = useState({});
+    const cart = useSelector(state => state.shop.cart)
+    const {cartTotal} = useCartHooks()
+    const {count ,price } = cartTotal
 
     const required = val => val && val.length;
     const maxLength = len => val => !val || val.length <= len;
     const minLength = len => val => val && val.length >= len;
+
     const nameErrorMessage = {
-        required: "Required",
-        minLength: "Must be greater than 2 characters",
-        maxLength: "Must be 15 characters or less"
+        required: "Required ",
+        minLength: " Must be greater than 2 characters",
+        maxLength: " Must be 15 characters or less"
     }
     const validators = {
         required,
@@ -27,8 +37,14 @@ const Checkout = ({showModal , handleShow} ) => {
         maxLength: maxLength(25)
     }
 
-    const handleSubmit = (values) => {
-        // this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+    const handleSubmit = () => {
+        data = {
+            product:cart,
+            address:address,
+            name:name,
+            total:price
+        }
+       dispatch(placeOrderAction(data));
     }
     return (
         <div>
@@ -48,6 +64,8 @@ const Checkout = ({showModal , handleShow} ) => {
                                     placeholder="Your Name"
                                     className="form-control"
                                     validators={validators}
+                                    value = {name}
+                                    onChange={e => setName(e.target.value)}
                                 />
                                 <Errors
                                     className="text-danger"
@@ -69,6 +87,8 @@ const Checkout = ({showModal , handleShow} ) => {
                                     rows={5}
                                     className="form-control"
                                     validators={validators}
+                                    value={address}
+                                    onChange={e => setAddress(e.target.value)}
                                 />
                                 <Errors
                                     className="text-danger"
