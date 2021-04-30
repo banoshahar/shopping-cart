@@ -247,7 +247,8 @@ input {
   overflow: hidden;
 }
 .prd--card-container,
-.summary--container {
+.summary--container,
+.view--container {
   margin-top: 62px;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -503,8 +504,13 @@ input {
   max-width: 240px;
   top: 12px!important;
 }
+.drpDn--main .dropdown-item {
+  border-top: 1px solid #cccccc;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
 .drpDn--main .drp--userNm {
-  padding: 24px;
+  padding: 16px 24px;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -540,4 +546,15 @@ input {
 }
 .text-danger {
   font-size: 10px;
+}
+.prd--card-view {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+.prd--card-view .prd--card-img {
+ height: 220px;
+}
+.text--danger {
+  color:#dc3545;
 }

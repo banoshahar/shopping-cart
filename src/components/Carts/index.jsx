@@ -29,16 +29,18 @@ const Cart = () => {
         ))}
         </Row>
       </div>
-      <Card style={{ width: '100%', height: 'auto' }}>
+      <Card className="smr--card">
         
-        <CardBody>
-        <h2 className="md--hd dark--text mb-2 font--semiBold interUi">Cart Summary</h2>
+        <CardBody className="d-flex flex-column align-items-center justify-content-center">
+        <h2 className="md--hd dark--text mb-4 font--semiBold interUi">Cart Summary</h2>
           <h3 className="lg--para dark--text mb-2 font--semiBold interUi d-flex align-items-center">TOTAL: <span className="grey--text sm--para font--medium ml-2">({count} items)</span></h3>
-          <p>$ {price}</p>
+          <p className="md--para grey--text mb-4">
+           <span className="lg--para dark--text font--semiBold">$</span> {price}
+        </p>
           {/* <Button outline onClick={handleShow}>
             <span className="fa" /> Proceed To Checkout
           </Button> */}
-          <Button variant="primary" onClick={handleShow} className="btn prd--card-btn">Proceed to checkout</Button>
+          <Button variant="primary" onClick={handleShow} className="btn prd--card-btn login--btn">Proceed to checkout</Button>
           <Checkout showModal={showModal} handleShow={handleShow} />
         </CardBody>
       </Card>

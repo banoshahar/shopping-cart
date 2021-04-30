@@ -36,10 +36,10 @@ const Header = () => {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <div className="drp--userNm">
-                                User name user name user name 
+                            <div className="drp--userNm lg--para grey--text">
+                                Usman Khan
                             </div>
-                            <Dropdown.Item href="#" className="text-danger"><i className="fa fa-sign-out-alt text-danger"></i>Log out</Dropdown.Item>
+                            <Dropdown.Item href="#" className="text--danger normal--para"><i className="fa fa-sign-out-alt text-danger"></i>Log out</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </div>
