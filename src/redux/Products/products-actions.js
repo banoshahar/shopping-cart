@@ -30,8 +30,7 @@ const useProductHooks = () =>{
     const getProductDetails = async (id) => {
         try {
             dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_REQUEST });
-            console.log(id)
-    
+            
             const { data } = await getProductById(id);
     
             dispatch({

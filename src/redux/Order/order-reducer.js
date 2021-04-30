@@ -10,7 +10,8 @@ export const placeOrderReducer = (state = { data: [] }, action) => {
             return {
                 data: action.payload,
                 loading: false,
-            };
+            };console.log(id)
+    
         case actionTypes.PLACE_ORDER_FAIL:
             return {
                 loading: false,

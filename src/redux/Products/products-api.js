@@ -5,6 +5,5 @@ export const getAllProducts =  async () =>{
 }
 
 export const getProductById = async (id) =>{
-    console.log(id)
     return await axios.get(`/api/products/${id}`);
 }
