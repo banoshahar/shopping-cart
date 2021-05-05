@@ -3,7 +3,6 @@ import CartItem from "./cart";
 import useCartHooks from '../../redux/Cart/cart-actions';
 import {
   Card,
-  CardText,
   CardBody,
   Button,
 
@@ -11,6 +10,7 @@ import {
 import { useSelector } from 'react-redux';
 import Checkout from './checkout'
 import { Row } from 'react-bootstrap';
+import { CartMain , CartHeading } from './cart.style'
 
 const Cart = () => {
   const cart = useSelector(state => state.shop.cart);
@@ -20,7 +20,7 @@ const Cart = () => {
   const {count ,price } = cartTotal
 
   return (
-    <div className="container flex--col-grow summary--container">
+    <CartMain className="container flex--col-grow">
       <div>
       <Row className="justify-content-center">
 
@@ -32,7 +32,7 @@ const Cart = () => {
       <Card className="smr--card">
         
         <CardBody className="d-flex flex-column align-items-center justify-content-center">
-        <h2 className="md--hd dark--text mb-4 font--semiBold interUi">Cart Summary</h2>
+        <CartHeading className="md--hd dark--text mb-4 font--semiBold interUi">Cart Summary</CartHeading>
           <h3 className="lg--para dark--text mb-2 font--semiBold interUi d-flex align-items-center">TOTAL: <span className="grey--text sm--para font--medium ml-2">({count} items)</span></h3>
           <p className="md--para grey--text mb-4">
            <span className="lg--para dark--text font--semiBold">$</span> {price}
@@ -44,7 +44,7 @@ const Cart = () => {
           <Checkout showModal={showModal} handleShow={handleShow} />
         </CardBody>
       </Card>
-    </div>
+    </CartMain>
   );
 };
 

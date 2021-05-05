@@ -7,11 +7,12 @@ import Products from "../Products";
 import Details from "../ProductDetails";
 import Login from "../login";
 import Register from "../Registration";
+import {MainCart} from './main.style'
 
 
 const Main = () => {
   return (
-    <div className="cart--main flex--col-grow">
+    <MainCart className="flex--col-grow">
       <Header />
       <Switch>
         <Route exact path="/" component={Products} />
@@ -22,7 +23,7 @@ const Main = () => {
         <Redirect to="/" />
       </Switch>
       <Footer />
-    </div>
+    </MainCart>
   );
 }
 

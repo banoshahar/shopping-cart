@@ -1,8 +1,12 @@
 import React , { useEffect, useState }from "react";
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import useAuthHooks from '../../redux/Auth/auth-actions';
+import { LoginInner , LoginLogo} from '../login/login.style'
+import {ButtonStyled as Button} from './registration.style'
+import {MainCart} from '../Main/main.style'
+import {LoginForm} from '../login/login.style'
 
 const Register = () => {
 
@@ -25,13 +29,12 @@ const Register = () => {
 
    }
   return (
-    <div className="cart--main flex--col-grow">
-      <div className="container flex--col-grow align-items-center justify-content-center">
-        <div className="login--inner">
-        <div className="login--logo">
+    <MainCart className="container align-items-center justify-content-center">
+        <LoginInner>
+        <LoginLogo>
             <img src='assets/images/neyborly-blue.png' alt='Shopping Cart Logo' />
-          </div>
-          <Form className="login--form w-100" onSubmit={handleSubmit}>
+          </LoginLogo>
+          <LoginForm className="w-100" onSubmit={handleSubmit}>
 
           <Form.Group controlId="formBasicName">
               <Form.Label>Full Name</Form.Label>
@@ -59,17 +62,17 @@ const Register = () => {
             </Form.Group>
 
             <div className="d-flex align-items-center justify-content-end pt-3">
-            <Button variant="primary" type="submit" className="hdr--btn login--btn">
+            <Button variant="primary" type="submit" className="login--btn">
               Confirm
             </Button>
-            <Button variant="secondary" type="button" className="hdr--btn signUp--btn">
+            <Button variant="secondary" type="button" className="signUp--btn">
               Cancel
             </Button>
             </div>
-          </Form>
-        </div>
-      </div>
-    </div>
+          </LoginForm>
+    
+      </LoginInner>
+    </MainCart>
   );
 };
 

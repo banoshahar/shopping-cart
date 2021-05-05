@@ -5,6 +5,7 @@ import {
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import  store  from './redux/configureStore';
+import {MainStyle} from './app.style'
 
 
 class App extends Component {
@@ -14,9 +15,9 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="App">
+          <MainStyle className="App">
             <Main />
-          </div>
+          </MainStyle>
         </Router>
       </Provider>
 
