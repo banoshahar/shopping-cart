@@ -12,12 +12,7 @@ const useOrderHooks = () =>{
     
     const placeOrderAction =  async (address,name) => {
         try {
-            const reqData = {
-                address:address,
-                name:name,
-                product:cart,
-                total:price
-            }
+            const reqData = {address,name,product:cart,total:price}
 
             dispatch({ type: actionTypes.PLACE_ORDER_REQUEST });
             const {data} = await placeOrder(reqData)
@@ -31,7 +26,7 @@ const useOrderHooks = () =>{
             dispatch({
                 type: actionTypes.PLACE_ORDER_FAIL,
                 payload:
-                    error.response && error.response.data.message
+                    error.response?.data.message
                         ? error.response.data.message
                         : error.message,
             });

@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import useCartHooks from "../../redux/Cart/cart-actions";
 import useProductHooks from "../../redux/Products/products-actions";
-import { Button } from 'react-bootstrap';
-import  { ProductDetailsMain , ProductCardView} from './details.style'
+import  { ProductDetailsMain , ProductCardView ,ProductCardFtr} from './details.style';
+import { ButtonStyled as Button} from '../Carts/cart.style'
 
 const Details = () => {
 
@@ -40,14 +40,14 @@ const Details = () => {
 
           </div>
 
-          <div className="prd--card-ftr">
+          <ProductCardFtr>
             <p className="md--para grey--text">
               <span className="lg--para dark--text font--semiBold">$</span> {currentItem.price}
             </p>
             <div className="d-flex align-items-center justify-content-center mt-3 w-100">
               <Button variant="secondary" className="btn prd--card-btn mr-0" onClick={() => addToCart(currentItem._id)}>Add To Cart</Button>
             </div>
-          </div>
+          </ProductCardFtr>
         </ProductCardView>
       ))}
     </ProductDetailsMain>

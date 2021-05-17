@@ -14,7 +14,7 @@ import useOrderHooks from "../../redux/Order/order-actions";
 const Checkout = ({ showModal, handleShow }) => {
     const [name, setName] = useState(" ");
     const [address, setAddress] = useState(" ");
-    let { placeOrderAction } = useOrderHooks();
+    const { placeOrderAction } = useOrderHooks();
 
     const required = val => val && val.length;
     const maxLength = len => val => !val || val.length <= len;

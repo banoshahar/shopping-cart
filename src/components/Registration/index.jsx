@@ -21,7 +21,7 @@ const Register = () => {
         if(!!authData.data){
             history.push('/')
         }
-    } ,[authData])
+    } ,[authData , history])
     const handleSubmit = (event) => {
       event.preventDefault();
       signupAction(name ,email,password)

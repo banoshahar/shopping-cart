@@ -4,13 +4,13 @@ import useCartHooks from '../../redux/Cart/cart-actions';
 import {
   Card,
   CardBody,
-  Button,
 
 } from "reactstrap";
 import { useSelector } from 'react-redux';
 import Checkout from './checkout'
 import { Row } from 'react-bootstrap';
-import { CartMain , CartHeading } from './cart.style'
+import { CartMain , CartHeading , ButtonStyled as Button} from './cart.style'
+
 
 const Cart = () => {
   const cart = useSelector(state => state.shop.cart);

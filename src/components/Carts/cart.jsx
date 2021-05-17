@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import useCartHooks from "../../redux/Cart/cart-actions";
-import { Button } from "reactstrap";
-import { Row, Col, Form } from 'react-bootstrap';
+import { Col, Form } from 'react-bootstrap';
+import {ButtonStyled as Button , CartStyled} from './cart.style'
+import  {ProductCardFtr} from '../ProductDetails/details.style';
 
 const CartItem = ({ item }) => {
-  const [input, setInput] = useState(item.qty);
+  const { _id, image, title, description, price ,qty } = item;
+  const [input, setInput] = useState(qty);
   const { adjustItemQty, removeFromCart } = useCartHooks();
-  const { _id, image, title, description, price } = item;
+  
 
   const onChangeHandler = (e) => {
     const { value } = e.target;
@@ -16,7 +18,7 @@ const CartItem = ({ item }) => {
 
   return (
     <Col sm="6" xs="12" className="d-flex">
-      <div className='prd--card'>
+      <CartStyled>
         <div className="prd--card-img">
           <img
             src={image}
@@ -28,8 +30,7 @@ const CartItem = ({ item }) => {
           <p className="sm--para grey--text mb-2">{description}</p>
 
         </div>
-
-        <div className="prd--card-ftr">
+        <ProductCardFtr>
           <p className="md--para grey--text">
             <span className="lg--para dark--text font--semiBold">$</span> {price}
           </p>
@@ -43,8 +44,8 @@ const CartItem = ({ item }) => {
             </Form.Group>
           </Form>
           <Button variant="danger" className="btn prd--card-btn mr-0 danger-btn" onClick={() => removeFromCart(_id)}>Remove Cart</Button>
-        </div>
-      </div>
+        </ProductCardFtr>
+      </CartStyled>
     </Col>
   );
 

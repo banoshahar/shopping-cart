@@ -16,7 +16,7 @@ const useAuthHooks = () => {
             dispatch({ type: actionTypes.REGISTER_REQUEST });
             try {
                 const  {data}  = await signup(formdata);
-                const { result , code,message} = data
+                const { result} = data
                 dispatch({
                     type: actionTypes.REGISTER_SUCCESS,
                     payload: result
@@ -33,7 +33,7 @@ const useAuthHooks = () => {
             dispatch({
                 type: actionTypes.REGISTER_FAIL,
                 payload:
-                    error.response && error.response.data.message
+                error.response?.data.message
                         ? error.response.data.message
                         : error.message,
             });
@@ -49,7 +49,7 @@ const useAuthHooks = () => {
             dispatch({ type: actionTypes.LOGIN_REQUEST });
 
             const { data } = await signin(formData);
-            const { result , code,message} = data
+            const { result} = data
 
             dispatch({ type: actionTypes.LOGIN_SUCCESS });
 
@@ -62,7 +62,7 @@ const useAuthHooks = () => {
             dispatch({
                 type: actionTypes.LOGIN_FAIL,
                 payload:
-                    error.response && error.response.data.message
+                error.response?.data.message
                         ? error.response.data.message
                         : error.message,
             });
@@ -79,13 +79,14 @@ const useAuthHooks = () => {
 
             dispatch({
                 type: actionTypes.LOGIN_SUCCESS,
+                payload:data
             });
 
         } catch (error) {
             dispatch({
                 type: actionTypes.LOGIN_FAIL,
                 payload:
-                    error.response && error.response.data.message
+                    error.response?.data.message
                         ? error.response.data.message
                         : error.message,
             });

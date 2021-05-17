@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useCartHooks from "../../redux/Cart/cart-actions";
-import { Button, Col } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import {ProductCard, ProductCardImg ,ProductParagraph, ProductCardBody,ProductHeading,
 ProductCardFtr ,ProductCardParagraph} from './product.style'
+import { ButtonStyled as Button} from '../Carts/cart.style'
 
 const Product = ({ product }) => {
   const {addToCart }  = useCartHooks();
-
+  console.log(product)
   return (
     <Col lg="4" md="6" xs="12" className="d-flex">
     <ProductCard>

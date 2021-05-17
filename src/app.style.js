@@ -52,30 +52,7 @@ export const MainStyle = styled.div`
         align-items: center;
         justify-content: center;
     }
-    .prd--card-btn {
-        min-height: 40px;
-        min-width: 80px;
-        padding: 8px 12px;
-        font-size: 14px;
-        line-height: 18px;
-        color: #ffffff;
-        margin-right: 12px;
-        font-family: "Inter UI";
-    }
-    .prd--card {
-        display: flex;
-        flex-direction: column;
-        padding: 0px;
-        background: #ffffff;
-        border: 1px solid #ffffff;
-        box-shadow: 0px 4px 20px rgba(2, 5, 32, 0.2);
-        border-radius: 12px;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        -ms-border-radius: 12px;
-        -o-border-radius: 12px;
-        margin-bottom: 16px;
-    }
+    
 
     .prd--card-img {
         display: flex;
@@ -95,13 +72,7 @@ export const MainStyle = styled.div`
         height: 100%;
         }
     }
-    .prd--card-ftr {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 8px 16px 24px 16px; 
-    }
+    
 
     .text-danger {
         font-size: 10px;

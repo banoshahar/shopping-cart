@@ -11,8 +11,7 @@ const useProductHooks = () =>{
             dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
     
             const {data} = await getAllProducts();
-            const { result , code,message} = data
-            console.log(data)
+            const { result} = data
     
             dispatch({
                 type: actionTypes.GET_PRODUCTS_SUCCESS,
@@ -22,7 +21,7 @@ const useProductHooks = () =>{
             dispatch({
                 type: actionTypes.GET_PRODUCTS_FAIL,
                 payload:
-                    error.response && error.response.data.message
+                error.response?.data.message
                         ? error.response.data.message
                         : error.message,
             });
@@ -33,17 +32,19 @@ const useProductHooks = () =>{
         try {
             dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_REQUEST });
             
+            
             const { data } = await getProductById(id);
+            const {result} = data
     
             dispatch({
                 type: actionTypes.GET_PRODUCT_DETAILS_SUCCESS,
-                payload: data,
+                payload: result,
             });
         } catch (error) {
             dispatch({
                 type: actionTypes.GET_PRODUCT_DETAILS_FAIL,
                 payload:
-                    error.response && error.response.data.message
+                error.response?.data.message
                         ? error.response.data.message
                         : error.message,
             });
