@@ -9,12 +9,12 @@ import {
     Label
 } from "reactstrap";
 import { Control, LocalForm, Errors } from "react-redux-form";
-import  useOrderHooks  from "../../redux/Order/order-actions";
+import useOrderHooks from "../../redux/Order/order-actions";
 
 const Checkout = ({ showModal, handleShow }) => {
     const [name, setName] = useState(" ");
     const [address, setAddress] = useState(" ");
-    let {placeOrderAction} = useOrderHooks();
+    let { placeOrderAction } = useOrderHooks();
 
     const required = val => val && val.length;
     const maxLength = len => val => !val || val.length <= len;
@@ -31,8 +31,9 @@ const Checkout = ({ showModal, handleShow }) => {
         maxLength: maxLength(25)
     }
 
-    const handleSubmit = () => {
-         placeOrderAction(address,name,);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        placeOrderAction(address, name,);
     }
     return (
         <div>

@@ -23,3 +23,27 @@ export const authReducer = (state = { data: null }, action) => {
             return state;
     }
 };
+
+export const loginReducer = (state = { data: null }, action) => {
+    switch (action.type) {
+        case actionTypes.LOGIN_REQUEST:
+            return {
+                loading: true,
+            };
+        case actionTypes.LOGIN_SUCCESS:
+            return {
+                data: action.payload,
+                loading: false,
+            };
+    
+        case actionTypes.LOGIN_FAIL:
+            return {
+                loading: false,
+                error: action.payload,
+            };
+
+
+        default:
+            return state;
+    }
+};

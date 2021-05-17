@@ -17,16 +17,14 @@ const Register = () => {
     const history = useHistory();
     const authData = useSelector(state => state.authReducer);
     
-
     useEffect( () => {
         if(!!authData.data){
-            console.log(authData.data)
             history.push('/')
         }
     } ,[authData])
-    const handleSubmit = () => {
-        signupAction(name ,email,password)
-
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      signupAction(name ,email,password)
    }
   return (
     <MainCart className="container align-items-center justify-content-center">
@@ -38,7 +36,7 @@ const Register = () => {
 
           <Form.Group controlId="formBasicName">
               <Form.Label>Full Name</Form.Label>
-              <Form.Control type="email" placeholder="Enter Full Name"
+              <Form.Control type="text" placeholder="Enter Full Name"
               value={name} 
               onChange = {e => setName(e.target.value)}/>
               {/* <Form.Text className="text-muted">

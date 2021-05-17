@@ -6,14 +6,20 @@ import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
 import useCartHooks from '../../redux/Cart/cart-actions';
-import {NavContainer,NavButton , DropDownNav} from './header.style'
-import {ButtonStyled as Button} from '../Registration/registration.style'
+import {NavContainer,NavButton , DropDownNav} from './header.style';
+import {ButtonStyled as Button} from '../Registration/registration.style';
+import useAuthHooks from '../../redux/Auth/auth-actions';
 
 const Header = () => {
     const [isNavOpen, toggleNav] = useState(false);
     const handleShow = () => toggleNav(temp => !temp);
     const { cartTotal } = useCartHooks()
     const history = useHistory()
+    const { signOutAction } = useAuthHooks();
+
+    const logout = () => {
+        signOutAction()
+    } 
     return (
         <NavContainer className="nav--container">
             <div className="container--lg">
@@ -41,9 +47,7 @@ const Header = () => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item href="#"></Dropdown.Item>
-                                <Dropdown.Item href="#">Username Username Username Username Username</Dropdown.Item>
-                                <Dropdown.Item href="#" className="text-danger"><i className="fa fa-sign-out-alt text-danger"></i>Log out</Dropdown.Item>
+                                <Dropdown.Item href="#" className="text-danger" onClick={() => logout()}><i className="fa fa-sign-out-alt text-danger"></i>Log out</Dropdown.Item>
                             </Dropdown.Menu>
                         </DropDownNav>
                     </div>

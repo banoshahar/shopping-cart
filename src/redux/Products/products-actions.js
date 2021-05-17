@@ -11,10 +11,12 @@ const useProductHooks = () =>{
             dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
     
             const {data} = await getAllProducts();
+            const { result , code,message} = data
+            console.log(data)
     
             dispatch({
                 type: actionTypes.GET_PRODUCTS_SUCCESS,
-                payload: data,
+                payload: result,
             });
         } catch (error) {
             dispatch({

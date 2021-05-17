@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { Form } from 'react-bootstrap';
+import { useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import useAuthHooks from '../../redux/Auth/auth-actions';
 import { ButtonStyled as Button } from '../Registration/registration.style'
-import { LoginInner , LoginLogo} from './login.style'
-import {MainCart} from '../Main/main.style'
-import {LoginForm} from './login.style'
+import { LoginInner, LoginLogo } from './login.style'
+import { MainCart } from '../Main/main.style'
+import { LoginForm } from './login.style'
 
 
 const Login = () => {
@@ -14,11 +15,20 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { signinAction } = useAuthHooks();
   const history = useHistory();
+  const authData = useSelector(state => state.loginReducer);
 
-  const handleSubmit = () => {
-    signinAction(email, password, history)
+  useEffect(() => {
+    console.log(authData.data)
+    if (!!authData.data) {
+      history.push('/')
+    }
+  }, [authData])
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    signinAction(email, password)
   }
+
   return (
     <MainCart className="container align-items-center justify-content-center">
       <LoginInner>
@@ -32,9 +42,6 @@ const Login = () => {
             <Form.Control type="email" placeholder="Enter email"
               value={email}
               onChange={e => setEmail(e.target.value)} />
-            {/* <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text> */}
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">

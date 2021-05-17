@@ -8,7 +8,7 @@ import {
     placeOrderReducer
   } from "./Order/order-reducer";
   import {
-    authReducer
+    authReducer ,loginReducer
   } from "./Auth/auth-reducer";
 
 const rootReducer = combineReducers({
@@ -16,7 +16,8 @@ const rootReducer = combineReducers({
     getProducts: getProductsReducer,
     getProductDetails: getProductDetails,
     orderReducer:placeOrderReducer,
-    authReducer:authReducer
+    authReducer:authReducer,
+    loginReducer:loginReducer
 });
 
 export default rootReducer;
