@@ -31,9 +31,8 @@ const Checkout = ({ showModal, handleShow }) => {
         maxLength: maxLength(25)
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        placeOrderAction(address, name,);
+    const handleSubmit = () => {
+        placeOrderAction(address, name);
     }
     return (
         <div>

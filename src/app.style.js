@@ -53,27 +53,6 @@ export const MainStyle = styled.div`
         justify-content: center;
     }
     
-
-    .prd--card-img {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 180px;
-        overflow: hidden;
-        border-radius: 12px 12px 0px 0px;
-        -webkit-border-radius: 12px 12px 0px 0px;
-        -moz-border-radius: 12px 12px 0px 0px;
-        -ms-border-radius: 12px 12px 0px 0px;
-        -o-border-radius: 12px 12px 0px 0px;
-        margin-bottom: 8px;
-        img {
-        width: 100%;
-        height: 100%;
-        }
-    }
-    
-
     .text-danger {
         font-size: 10px;
     }

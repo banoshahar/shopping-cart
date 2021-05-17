@@ -8,7 +8,6 @@ import { ButtonStyled as Button} from '../Carts/cart.style'
 
 const Product = ({ product }) => {
   const {addToCart }  = useCartHooks();
-  console.log(product)
   return (
     <Col lg="4" md="6" xs="12" className="d-flex">
     <ProductCard>

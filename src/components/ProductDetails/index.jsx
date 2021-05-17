@@ -10,6 +10,7 @@ const Details = () => {
 
   const productDetails = useSelector((state) => state.getProductDetails);
   const { loading, error, currentItem } = productDetails;
+
   const { id = null } = useParams();
   const { getProductDetails } = useProductHooks();
 
