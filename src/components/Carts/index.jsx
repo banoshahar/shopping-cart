@@ -23,8 +23,7 @@ const Cart = () => {
     <CartMain className="container flex--col-grow">
       <div>
       <Row className="justify-content-center">
-
-        {cart.map((item) => (
+        {!!cart && cart.map((item) => (
           <CartItem key={item._id} item={item} />
         ))}
         </Row>
@@ -37,9 +36,6 @@ const Cart = () => {
           <p className="md--para grey--text mb-4">
            <span className="lg--para dark--text font--semiBold">$</span> {price}
         </p>
-          {/* <Button outline onClick={handleShow}>
-            <span className="fa" /> Proceed To Checkout
-          </Button> */}
           <Button variant="primary" onClick={handleShow} className="btn prd--card-btn login--btn">Proceed to checkout</Button>
           <Checkout showModal={showModal} handleShow={handleShow} />
         </CardBody>

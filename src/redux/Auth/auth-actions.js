@@ -1,6 +1,7 @@
 import * as actionTypes from '../shopping-types';
 import { useDispatch } from "react-redux";
 import { signin, signup , signout} from './auth-api';
+import {compileError} from '../utills/api'
 
 
 const useAuthHooks = () => {
@@ -32,10 +33,7 @@ const useAuthHooks = () => {
         } catch (error) {
             dispatch({
                 type: actionTypes.REGISTER_FAIL,
-                payload:
-                error.response?.data.message
-                        ? error.response.data.message
-                        : error.message,
+                payload:compileError(error)
             });
         }
     };
@@ -61,10 +59,7 @@ const useAuthHooks = () => {
         } catch (error) {
             dispatch({
                 type: actionTypes.LOGIN_FAIL,
-                payload:
-                error.response?.data.message
-                        ? error.response.data.message
-                        : error.message,
+                payload:compileError(error)
             });
         }
     };
@@ -85,10 +80,7 @@ const useAuthHooks = () => {
         } catch (error) {
             dispatch({
                 type: actionTypes.LOGIN_FAIL,
-                payload:
-                    error.response?.data.message
-                        ? error.response.data.message
-                        : error.message,
+                payload:compileError(error)
             });
         }
     };

@@ -1,6 +1,7 @@
 import * as actionTypes from '../shopping-types';
 import { getAllProducts , getProductById } from './products-api';
 import { useDispatch } from "react-redux";
+import {compileError} from '../utills/api'
 
 const useProductHooks = () =>{
 
@@ -20,10 +21,7 @@ const useProductHooks = () =>{
         } catch (error) {
             dispatch({
                 type: actionTypes.GET_PRODUCTS_FAIL,
-                payload:
-                error.response?.data.message
-                        ? error.response.data.message
-                        : error.message,
+                payload: compileError(error)
             });
         }
     };
@@ -43,10 +41,7 @@ const useProductHooks = () =>{
         } catch (error) {
             dispatch({
                 type: actionTypes.GET_PRODUCT_DETAILS_FAIL,
-                payload:
-                error.response?.data.message
-                        ? error.response.data.message
-                        : error.message,
+                payload:compileError(error)
             });
         }
     };

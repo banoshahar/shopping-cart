@@ -9,7 +9,7 @@ import {MainStyle} from './app.style'
 
 
 const App = () => {
-
+  
     return (
       <Provider store={store}>
         <Router>
@@ -18,8 +18,6 @@ const App = () => {
           </MainStyle>
         </Router>
       </Provider>
-
-
     );
   }
 

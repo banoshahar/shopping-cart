@@ -12,7 +12,10 @@ const Products = () => {
   const { getProducts } = useProductHooks();
 
   useEffect(() => {
-    getProducts();
+    if(!!products){
+      getProducts();
+    }
+    
   }, []);
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useCartHooks from "../../redux/Cart/cart-actions";
 import { Col, Form } from 'react-bootstrap';
 import {ButtonStyled as Button , CartStyled} from './cart.style'
@@ -6,24 +6,18 @@ import  {ProductCardFtr} from '../ProductDetails/details.style';
 
 const CartItem = ({ item }) => {
   const { _id, image, title, description, price ,qty } = item;
-  const [input, setInput] = useState(qty);
   const { adjustItemQty, removeFromCart } = useCartHooks();
   
 
   const onChangeHandler = (e) => {
     const { value } = e.target;
-    setInput(value);
     adjustItemQty(_id, value);
   };
 
   return (
-    <Col sm="6" xs="12" className="d-flex">
-      <CartStyled>
+      <CartStyled sm="6" xs="12" className="d-flex">
         <div className="prd--card-img">
-          <img
-            src={image}
-            alt={title}
-          />
+          <img src={image} alt={title}/>
         </div>
         <div className="prd--card-body flex--col-grow">
           <h2 className="sm--hd dark--text font--semiBold mb-2">{title}</h2>
@@ -39,14 +33,13 @@ const CartItem = ({ item }) => {
               <Form.Label htmlFor="qty" className="grey--text mb-1">Quantity</Form.Label>
               <Form.Control type="number" placeholder="Quantity" min="1" id="qty"
                 name="qty"
-                value={input}
+                value={qty}
                 onChange={onChangeHandler} />
             </Form.Group>
           </Form>
           <Button variant="danger" className="btn prd--card-btn mr-0 danger-btn" onClick={() => removeFromCart(_id)}>Remove Cart</Button>
         </ProductCardFtr>
       </CartStyled>
-    </Col>
   );
 
 };

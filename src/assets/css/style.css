@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: "Inter UI";
   src: url("../fonts/interUI/InterUI-Medium.woff2") format("woff2"),
     url("../fonts/interUI/InterUI-Medium.woff") format("woff"),
@@ -181,14 +181,7 @@ input {
 .main--navbar {
   padding: 8px 0px;
 }
-.container--lg {
-  max-width: 100%;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
+
 .main--navbar .navbar-brand {
   display: flex;
   align-items: center;
@@ -433,4 +426,4 @@ input {
 
 
 
-
+ */

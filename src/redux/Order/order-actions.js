@@ -1,21 +1,22 @@
 import * as actionTypes from '../shopping-types';
-import { placeOrder  } from './order-api';
-import { useSelector ,useDispatch } from "react-redux";
+import { placeOrder } from './order-api';
+import { useSelector, useDispatch } from "react-redux";
 import useCartHooks from '../Cart/cart-actions';
+import {compileError} from '../utills/api'
 
-const useOrderHooks = () =>{
+const useOrderHooks = () => {
 
     const dispatch = useDispatch()
-    const {cartTotal} = useCartHooks()
+    const { cartTotal } = useCartHooks()
     const cart = useSelector(state => state.shop.cart);
-    const{price} = cartTotal
-    
-    const placeOrderAction =  async (address,name) => {
+    const { price } = cartTotal
+
+    const placeOrderAction = async (address, name) => {
         try {
-            const reqData = {address,name,product:cart,total:price}
+            const reqData = { address, name, product: cart, total: price }
 
             dispatch({ type: actionTypes.PLACE_ORDER_REQUEST });
-            const {data} = await placeOrder(reqData)
+            const { data } = await placeOrder(reqData)
 
             dispatch({
                 type: actionTypes.PLACE_ORDER_SUCCESS,
@@ -25,10 +26,7 @@ const useOrderHooks = () =>{
         } catch (error) {
             dispatch({
                 type: actionTypes.PLACE_ORDER_FAIL,
-                payload:
-                    error.response?.data.message
-                        ? error.response.data.message
-                        : error.message,
+                payload: compileError(error)
             });
         }
     };
@@ -38,7 +36,7 @@ const useOrderHooks = () =>{
 }
 
 export default useOrderHooks;
- 
+
 
 
 

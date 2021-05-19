@@ -2,10 +2,9 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 
-function Footer(props) {
+const Footer = () => {
     return (
         <div className="main--footer">
-            <div className="container--lg">
                 <Row>
                     <Col md="4" sm="6">
                         <div className="ftr--content">
@@ -46,7 +45,6 @@ function Footer(props) {
                     </Col>
                 </Row>
                 </div>
-            </div>
         </div>
     )
 }

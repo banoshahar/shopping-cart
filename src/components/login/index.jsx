@@ -1,5 +1,5 @@
-import React, { useState ,useEffect } from "react";
-import { Form } from 'react-bootstrap';
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import useAuthHooks from '../../redux/Auth/auth-actions';
@@ -7,49 +7,46 @@ import { ButtonStyled as Button } from '../Registration/registration.style'
 import { LoginInner, LoginLogo } from './login.style'
 import { MainCart } from '../Main/main.style'
 import { LoginForm } from './login.style'
+import InputForm from '../Forms/forms'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
+const schema = yup.object().shape({
+  email: yup.string().email().required("Email is required"),
+  password: yup.string().required('Password is required')
+  .min(8, 'Password is too short - should be 8 chars minimum.'),
+});
 
 const Login = () => {
 
-  const [email, setEmail] = useState(" ");
-  const [password, setPassword] = useState("");
   const { signinAction } = useAuthHooks();
   const history = useHistory();
   const authData = useSelector(state => state.loginReducer);
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   useEffect(() => {
-    console.log(authData.data)
     if (!!authData.data) {
       history.push('/')
     }
-  }, [authData , history])
+  }, [authData, history])
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const onSubmit = (data) => {
+    const {email,password} = data
     signinAction(email, password)
   }
+  console.log(errors)
 
   return (
     <MainCart className="container align-items-center justify-content-center">
       <LoginInner>
         <LoginLogo>
-          <img src='assets/images/neyborly-blue.png' alt='Shopping Cart Logo' />
+          <img src='/assets/images/neyborly-blue.png' alt='Shopping Cart Logo' />
         </LoginLogo>
-
-        <LoginForm className="w-100" onSubmit={handleSubmit}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email"
-              value={email}
-              onChange={e => setEmail(e.target.value)} />
-          </Form.Group>
-
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password"
-              value={password}
-              onChange={e => setPassword(e.target.value)} />
-          </Form.Group>
+        <LoginForm className="w-100" onSubmit={handleSubmit(onSubmit)}>
+          <InputForm type="email" register={register("email")} errors={errors} />
+          <InputForm  type="password" register={register("password")} errors={errors}/>
           <div className="d-flex align-items-center justify-content-end  pt-3">
             <Button variant="primary" type="submit" className="login--btn">
               Confirm

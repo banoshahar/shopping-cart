@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import useCartHooks from "../../redux/Cart/cart-actions";
 import useProductHooks from "../../redux/Products/products-actions";
-import  { ProductDetailsMain , ProductCardView ,ProductCardFtr} from './details.style';
-import { ButtonStyled as Button} from '../Carts/cart.style'
+import { ProductDetailsMain, ProductCardView, ProductCardFtr } from './details.style';
+import { ButtonStyled as Button } from '../Carts/cart.style'
 
 const Details = () => {
 
@@ -19,15 +19,12 @@ const Details = () => {
       getProductDetails(id);
     }
   }, []);
+  const isLoading = () => loading ? <h2>Loading...</h2> : error ? (<h2>{error}</h2>) : !!currentItem
 
   const { addToCart } = useCartHooks();
   return (
     <ProductDetailsMain className="container flex--col-grow">
-      {loading ? (
-        <h2>Loading...</h2>
-      ) : error ? (
-        <h2>{error}</h2>
-      ) : (!!currentItem && (
+      {isLoading() && (
         <ProductCardView className="prd--card">
           <div className="prd--card-img">
             <img
@@ -50,7 +47,7 @@ const Details = () => {
             </div>
           </ProductCardFtr>
         </ProductCardView>
-      ))}
+      )}
     </ProductDetailsMain>
   );
 };

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from 'react-bootstrap';
+import { Button,Col } from 'react-bootstrap';
 
 export const CartMain = styled.div`
     margin-top: 62px;
@@ -27,7 +27,7 @@ export const ButtonStyled = styled(Button)`
     }
 `;
 
-export const CartStyled = styled.div`
+export const CartStyled = styled(Col)`
     display: flex;
     flex-direction: column;
     padding: 0px;

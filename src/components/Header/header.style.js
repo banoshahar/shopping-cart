@@ -2,13 +2,43 @@ import { Dropdown } from 'react-bootstrap';
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
-    position: fixed;
+  position: fixed;
   width: 100%;
   min-height: 62px;
   display: flex;
   align-items: center;
   background-color: #512da8;
   z-index: 2;
+
+  .container--lg {
+    max-width: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @media (min-width: 992px) {
+     .navbar-expand-lg .navbar-collapse {
+    display: none!important;
+    flex-basis: auto;
+    } 
+  }
+  @media (min-width: 576px) {
+    .container--lg {
+        max-width: 95%;       
+    }
+  }
+  @media (min-width: 1440px) {
+    .container--lg {
+        max-width: 90%;  
+    }
+  }
+  @media (max-width: 991px) {
+    .main--navbar .navbar-brand {
+        margin-left: 12px;
+    }
+  }
 `;
 
 export const NavButton = styled.div`

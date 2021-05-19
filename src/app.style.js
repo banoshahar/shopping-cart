@@ -59,4 +59,51 @@ export const MainStyle = styled.div`
     .text--danger {
         color:#dc3545;
     }
+    @font-face {
+        font-family: 'Avenir Next LT Pro';
+        src: url('AvenirNextLTPro-Regular.woff2') format('woff2'),
+            url('AvenirNextLTPro-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Avenir Next LT Pro';
+        src: url('AvenirNextLTPro-Bold.woff2') format('woff2'),
+            url('AvenirNextLTPro-Bold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Avenir LT Std';
+        src: url('AvenirLTStd-Black.woff2') format('woff2'),
+            url('AvenirLTStd-Black.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Avenir LT Std';
+        src: url('AvenirLTStd-Roman.woff2') format('woff2'),
+            url('AvenirLTStd-Roman.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Avenir LT Std';
+        src: url('AvenirLTStd-Book.woff2') format('woff2'),
+            url('AvenirLTStd-Book.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+
+
+
 `;

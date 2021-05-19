@@ -21,7 +21,7 @@ const Header = () => {
         signOutAction()
     } 
     return (
-        <NavContainer className="nav--container">
+        <NavContainer>
             <div className="container--lg">
                 <Navbar dark expand="lg" className="main--navbar">
                     <NavbarToggler onClick={handleShow} />
